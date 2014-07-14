@@ -17,7 +17,7 @@ physics.setGravity(0, 0)
 
 -- Graphics
 
--- Background
+-- Backgroundb
 
 local bg = display.newImage('bg.png')
 
@@ -160,7 +160,7 @@ function listeners(action)
 		bg:addEventListener('touch', moveShip)
 		bg:addEventListener('tap', shoot)
 		Runtime:addEventListener('enterFrame', update)
-		timerSource = timer.performWithDelay(800, addEnemy, 0)
+		timerSource = timer.performWithDelay(50, addEnemy, 0)
 	else
 		bg:removeEventListener('touch', moveShip)
 		bg:removeEventListener('tap', shoot)
@@ -181,7 +181,6 @@ function shoot:tap(e)
 	bullet = display.newImage('bullet.png')
 	bullet.x = ship.x
 	bullet.y = ship.y - ship.height
-	print("display.contentHeight: ", ship.height)
 	bullet.name = 'bullet'
 	physics.addBody(bullet)
 	
@@ -228,7 +227,7 @@ function update(e)
 			print("Bullets: ", bullets.numChildren)
 			for i = 1, bullets.numChildren do
 				if(bullets[i] ~= nil) then
-					bullets[i].y = bullets[i].y - 10					
+					bullets[i].y = bullets[i].y - 5					
 					-- Destroy Offstage Bullets
 					if(bullets[i].y < -bullets[i].height) then
 						bullets:remove(bullets[i])
@@ -298,11 +297,9 @@ function collisionHandler(e)
 		display.remove(e.target)
 		
 		-- Remove Live
-		
 		display.remove(lives[lives.numChildren])
 		
 		-- Check for Game Over
-		
 		if(lives.numChildren < 1) then
 			alert('lose')
 		end
@@ -328,8 +325,6 @@ function restart()
     boss = nil
     enemy = nil
     bossHealth = 120
-    
-
 
 	Main()
 end
