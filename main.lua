@@ -203,8 +203,8 @@ end
 
 function alert(e)
 	listeners('remove')
-	--local alertView
 	
+	--local alertView
 	if(e == 'win') then
 		alertView = display.newImage('youWon.png')
 		alertView.x = display.contentWidth * 0.5
@@ -222,12 +222,10 @@ end
 
 function update(e)
 	-- Move Bullets
-	
 	if(bullets.numChildren ~= 0 and bullets) then
-			print("Bullets: ", bullets.numChildren)
 			for i = 1, bullets.numChildren do
 				if(bullets[i] ~= nil) then
-					bullets[i].y = bullets[i].y - 5					
+					bullets[i].y = bullets[i].y - 15					
 					-- Destroy Offstage Bullets
 					if(bullets[i].y < -bullets[i].height) then
 						bullets:remove(bullets[i])
@@ -238,8 +236,7 @@ function update(e)
 			end
 	end
 	
-	-- Move Enemies
-	
+	-- Move Enemies "Randomly"
 	if(enemies.numChildren ~= 0) then
 		for i = 1, enemies.numChildren do
 			if(enemies[i] ~= nil) then
@@ -264,7 +261,7 @@ function update(e)
 		boss.name = 'boss'
 		physics.addBody(boss)
 		boss.bodyType = 'static'
-		transition.to(boss, {time = 1500, y = boss.height + (boss.height * 0.5)})
+		transition.to(boss, {time = 15000, y = boss.height + (boss.height * 0.5)})
 		boss:play()
 		boss:addEventListener('collision', collisionHandler)
 	end
@@ -276,6 +273,7 @@ function collisionHandler(e)
 		display.remove(e.other)
 		display.remove(e.target)
 		scoreN = scoreN + 50
+		-- double dot ".." is concatination
 		score.text = 'Score: ' .. tostring(scoreN)
 		score:setReferencePoint(display.TopLeftReferencePoint)
 		score.x = 1
