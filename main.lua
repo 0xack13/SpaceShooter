@@ -124,7 +124,7 @@ end
 
 
 function addShip()
-	ship = movieclip.newAnim({'shipA.png', 'shipB.png'})
+	ship = movieclip.newAnim({'images/playerShip1_orange.png', 'images/playerShip1_orange.png'})
 	ship.x = display.contentWidth * 0.5
 	ship.y = display.contentHeight - ship.height
 	ship.name = 'ship'
@@ -178,7 +178,7 @@ function moveShip:touch(e)
 end
 
 function shoot:tap(e)
-	bullet = display.newImage('bullet.png')
+	bullet = display.newImage('images/laserBlue01.png')
 	bullet.x = ship.x
 	bullet.y = ship.y - ship.height
 	bullet.name = 'bullet'
