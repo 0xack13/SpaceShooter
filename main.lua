@@ -19,7 +19,7 @@ physics.setGravity(0, 0)
 
 -- Backgroundb
 
-local bg = display.newImage('bg.png')
+local bg = display.newImage('images/bg.jpg')
 
 -- [Title View]
 
@@ -190,7 +190,7 @@ function shoot:tap(e)
 end
 
 function addEnemy(e)
-	local enemy = movieclip.newAnim({'enemyA.png', 'enemyA.png','enemyA.png','enemyA.png','enemyA.png','enemyA.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png'})
+	local enemy = movieclip.newAnim({'images/enemy.png'}) -- 'enemyA.png','enemyA.png','enemyA.png','enemyA.png','enemyA.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png','enemyB.png'})
 	enemy.x = math.floor(math.random() * (display.contentWidth - enemy.width))
 	enemy.y = -enemy.height
 	enemy.name = 'enemy'
