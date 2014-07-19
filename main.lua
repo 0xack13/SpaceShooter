@@ -124,7 +124,7 @@ end
 
 
 function addShip()
-	ship = movieclip.newAnim({'images/playerShip1_orange.png', 'images/playerShip1_orange.png'})
+	ship = movieclip.newAnim({'images/playerShip2_red.png'})
 	ship.x = display.contentWidth * 0.5
 	ship.y = display.contentHeight - ship.height
 	ship.name = 'ship'
@@ -160,7 +160,7 @@ function listeners(action)
 		bg:addEventListener('touch', moveShip)
 		bg:addEventListener('tap', shoot)
 		Runtime:addEventListener('enterFrame', update)
-		timerSource = timer.performWithDelay(50, addEnemy, 0)
+		timerSource = timer.performWithDelay(150, addEnemy, 0)
 	else
 		bg:removeEventListener('touch', moveShip)
 		bg:removeEventListener('tap', shoot)
@@ -256,7 +256,7 @@ function update(e)
 	
 	if(scoreN == 100 and boss == nil) then
 		audio.play(bossSound)
-		boss = movieclip.newAnim({'bossA.png','bossA.png','bossA.png','bossA.png','bossA.png', 'bossA.png','bossA.png', 'bossB.png','bossB.png','bossB.png','bossB.png','bossB.png','bossB.png','bossB.png'})
+		boss = movieclip.newAnim({'images/boss.png'}) --,'bossA.png','bossA.png','bossA.png','bossA.png', 'bossA.png','bossA.png', 'bossB.png','bossB.png','bossB.png','bossB.png','bossB.png','bossB.png','bossB.png'})
 		boss.x = display.contentWidth * 0.5
 		boss.name = 'boss'
 		physics.addBody(boss)
