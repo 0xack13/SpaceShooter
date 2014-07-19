@@ -195,7 +195,13 @@ function shoot:tap(e)
 		bullet.name = 'bullet'
 		physics.addBody(bullet)
 		
-		audio.play(shot)
+		bullets.insert(bullets, bullet)
+
+		bullet = display.newImage('images/laserBlue01.png')
+		bullet.x = ship.x - 10
+		bullet.y = ship.y - ship.height
+		bullet.name = 'bullet'
+		physics.addBody(bullet)
 		
 		bullets.insert(bullets, bullet)
 	end
